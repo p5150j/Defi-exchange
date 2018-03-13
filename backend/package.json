@@ -13,6 +13,12 @@
   },
   "dependencies": {
     "@types/node": "^9.4.7",
+    "@types/restify": "^5.0.7",
+    "mysql2": "^1.5.2",
+    "reflect-metadata": "^0.1.12",
+    "restify": "^6.3.4",
+    "sequelize": "^4.36.1",
+    "sequelize-typescript": "^0.6.3",
     "ts-node": "^5.0.1",
     "typescript": "^2.7.2"
   },
