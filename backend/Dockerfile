@@ -10,6 +10,5 @@ RUN yarn install
 
 COPY . /app
 RUN yarn build
-RUN rm -rf /app/src
 
 CMD yarn start

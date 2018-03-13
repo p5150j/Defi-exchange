@@ -10,11 +10,11 @@ services:
     build:
       context: backend
     volumes:
-      - "./src:/app/src"
+      - "./backend/src:/app/src"
       - /app/node_modules
     ports:
       - "3333:3333"
     depends_on:
       - db
     env_file: .env.docker
-    command: yarn start
+    command: yarn dev
