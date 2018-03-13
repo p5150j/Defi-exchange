@@ -1,0 +1,1 @@
+console.log('backend MYSQL_DATABASE', process.env.MYSQL_DATABASE);

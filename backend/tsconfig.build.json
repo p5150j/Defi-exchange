@@ -1,0 +1,35 @@
+{
+  "compilerOptions": {
+    "typeRoots": ["node_modules/@types", "src/@types"],
+    "emitDecoratorMetadata": true,
+    "allowJs": true,
+    "target": "es2017",
+    "module": "commonjs",
+    "experimentalDecorators": true,
+    "outDir": "build",
+    "moduleResolution": "Node",
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "strict": true,
+    "lib": [
+      "es5",
+      "es6",
+      "es2015",
+      "es7",
+      "es2016",
+      "es2017",
+      "esnext",
+      "dom"
+    ]
+  },
+  "rootDir": "src",
+  "include": [
+    "src/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "src/**/*.integrationTests.ts",
+    "src/**/*.unitTests.ts",
+    "src/test/**/*.ts"
+  ]
+}

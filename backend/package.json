@@ -1,0 +1,22 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "license": "MIT",
+  "private": true,
+  "main": "index.ts",
+  "scripts": {
+    "preinstall": "use-yarn &>/dev/null || (npm install -g use-yarn && use-yarn)",
+    "start": "node build",
+    "dev": "nodemon",
+    "prebuild": "rm -rf build",
+    "build": "tsc -p tsconfig.build.json"
+  },
+  "dependencies": {
+    "@types/node": "^9.4.7",
+    "ts-node": "^5.0.1",
+    "typescript": "^2.7.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.1"
+  }
+}

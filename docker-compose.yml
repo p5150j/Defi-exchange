@@ -1,0 +1,20 @@
+version: '2'
+services:
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: HrAgMJ&Jc37^zMr(
+    env_file: .env.docker
+
+  backend:
+    build:
+      context: backend
+    volumes:
+      - "./src:/app/src"
+      - /app/node_modules
+    ports:
+      - "3333:3333"
+    depends_on:
+      - db
+    env_file: .env.docker
+    command: yarn start
