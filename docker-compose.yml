@@ -5,6 +5,10 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: HrAgMJ&Jc37^zMr(
     env_file: .env.docker
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./volumes/mysql:/var/lib/mysql
 
   backend:
     build:
