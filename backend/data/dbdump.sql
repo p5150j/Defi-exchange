@@ -29,9 +29,9 @@ CREATE TABLE `tokens` (
   `name` varchar(200) NOT NULL,
   `zeroex_official` tinyint(1) NOT NULL DEFAULT '0',
   `deprecated` tinyint(1) NOT NULL DEFAULT '0',
+  `created_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `quote` tinyint(1) NOT NULL DEFAULT '0',
   `active` tinyint(1) NOT NULL DEFAULT '0',
-  `created_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`address`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
