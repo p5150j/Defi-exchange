@@ -1,9 +1,8 @@
 version: '2'
 services:
   db:
+    container_name: db
     image: mysql:5.7
-    environment:
-      MYSQL_ROOT_PASSWORD: HrAgMJ&Jc37^zMr(
     env_file: .env.docker
     ports:
       - "3306:3306"
@@ -11,6 +10,7 @@ services:
       - ./volumes/mysql:/var/lib/mysql
 
   backend:
+    container_name: backend
     build:
       context: backend
     volumes:
