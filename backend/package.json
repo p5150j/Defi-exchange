@@ -6,10 +6,7 @@
   "main": "index.ts",
   "scripts": {
     "preinstall": "use-yarn &>/dev/null || (npm install -g use-yarn && use-yarn)",
-    "start": "node build",
-    "dev": "nodemon",
-    "prebuild": "rm -rf build",
-    "build": "tsc -p tsconfig.build.json"
+    "dev": "nodemon"
   },
   "dependencies": {
     "@types/node": "^9.4.7",

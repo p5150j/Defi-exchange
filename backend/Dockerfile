@@ -9,6 +9,5 @@ COPY yarn.lock package.json /app/
 RUN yarn install
 
 COPY . /app
-RUN yarn build
 
 CMD yarn start
