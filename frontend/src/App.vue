@@ -2,9 +2,10 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link> |
-      <router-link to="/tokens">Dashboard!!</router-link> |
-      <router-link to="/login">Login</router-link>
+      <router-link to="/tokens">Dashboard!!</router-link>
+      <span v-if="!user">|
+         <router-link  to="/login">Login</router-link>
+      </span>
     </div>
     <router-view/>
   </div>
@@ -29,3 +30,17 @@
   }
 }
 </style>
+
+<script lang="ts">
+    import { Component, Vue } from 'vue-property-decorator';
+    import {getUser} from './core/authService';
+
+    @Component
+    export default class App extends Vue {
+        get user () {
+            const user = getUser();
+            return user;
+        }
+    }
+
+</script>

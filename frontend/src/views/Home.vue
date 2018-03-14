@@ -1,19 +1,25 @@
 <template>
   <div class="home">
-    <img src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+    <div v-if="user">
+      <img :src="user.avatar.uri">
+      <h1>Welcome {{user.name}}</h1>
+    </div>
+    <div v-if="!user">
+      <h1>Welcome!</h1>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
+import {getUser} from '../core/authService';
 
-@Component({
-  components: {
-    HelloWorld,
-  },
-})
-export default class Home extends Vue {}
+@Component
+export default class Home extends Vue {
+    get user () {
+        return getUser();
+    }
+
+}
 
 </script>

@@ -1,15 +1,14 @@
-DC="docker-compose"
 include .env.docker
 
 build: down
-	@${DC} rm -f
-	@${DC} build
+	@docker-compose rm -f
+	@docker-compose build
 
 up:
-	@${DC} up -d
+	@docker-compose up -d
 
 down:
-	@${DC} stop
+	@docker-compose stop
 
 seed:
 	@docker exec -i db mysql -uroot -p"${MYSQL_ROOT_PASSWORD}" ${MYSQL_DATABASE} < ./backend/data/dbdump.sql
