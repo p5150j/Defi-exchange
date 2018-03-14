@@ -5,7 +5,8 @@ build: down
 	@docker-compose build
 
 up:
-	@docker-compose up -d
+	@docker-compose run --rm start_dependencies
+	@docker-compose up -d backend frontend
 
 down:
 	@docker-compose stop
