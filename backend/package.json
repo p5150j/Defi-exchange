@@ -17,6 +17,7 @@
     "mysql2": "^1.5.2",
     "reflect-metadata": "^0.1.12",
     "restify": "^6.3.4",
+    "restify-cors-middleware": "^1.1.0",
     "sequelize": "^4.36.1",
     "sequelize-typescript": "^0.6.3",
     "ts-node": "^5.0.1",
