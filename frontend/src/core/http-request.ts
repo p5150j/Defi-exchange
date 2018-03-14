@@ -32,24 +32,24 @@ export function request(requestConfig: AxiosRequestConfig) {
       (errorResponse) => {
         const {response} = errorResponse;
 
-        if (!response || !response.status) {
-          console.log('Hard network error', errorResponse);
-          return Promise.reject({status: 500, data: {message: 'An error occurred!'}});
-        }
-        if (response.status === 401) {
-          console.log('Unauthenticated request - login and comeback - status is ', response.status);
-          unauthenticatedAction();
-        } else if (response.status === 403) {
-          console.log('Unauthorized request - Not enough privileges ', response.status);
-          // unauthorizeddAction()
-        }
-        if (!response.data.message) {
-          console.log('Injecting default error');
-          if (typeof response.data === 'string') {
-            response.data = {};
-          }
-          response.data.message = 'An error occurred!!';
-        }
+        // if (!response || !response.status) {
+        //   console.log('Hard network error', errorResponse);
+        //   return Promise.reject({status: 500, data: {message: 'An error occurred!'}});
+        // }
+        // if (response.status === 401) {
+        //   console.log('Unauthenticated request - login and comeback - status is ', response.status);
+        //   unauthenticatedAction();
+        // } else if (response.status === 403) {
+        //   console.log('Unauthorized request - Not enough privileges ', response.status);
+        //   // unauthorizeddAction()
+        // }
+        // if (!response.data.message) {
+        //   console.log('Injecting default error');
+        //   if (typeof response.data === 'string') {
+        //     response.data = {};
+        //   }
+        //   response.data.message = 'An error occurred!!';
+        // }
         return Promise.reject(response);
       },
     );

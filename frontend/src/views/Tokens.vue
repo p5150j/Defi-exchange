@@ -1,5 +1,6 @@
 <template>
   <div class="hello">
+      <router-link class="button" :to="{name: 'tokenNew'}" >New</router-link>
       <span>Filter</span><input type="text" v-model="search" />
     <table width="100%">
       <thead>
