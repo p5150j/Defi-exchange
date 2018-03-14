@@ -45,5 +45,5 @@ import tokenRoutes from './routes/tokens.routes';
 
 	tokenRoutes(server);
 
-	server.listen(8080, () =>console.log('%s listening at %s', server.name, server.url) );
+	server.listen(process.env.API_PORT, () =>console.log('%s listening at %s', server.name, server.url) );
 })();

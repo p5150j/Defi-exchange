@@ -3,6 +3,7 @@ import Router from 'vue-router';
 import Home from './views/Home.vue';
 import About from './views/About.vue';
 import Tokens from './views/Tokens.vue';
+import Login from './views/Login.vue';
 
 Vue.use(Router);
 
@@ -23,6 +24,10 @@ export default new Router({
       name: 'tokens',
       component: Tokens
     },
-
+	{
+		path: '/login',
+		name: 'login',
+		component: Login,
+	},
   ],
 });

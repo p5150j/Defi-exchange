@@ -1,11 +1,11 @@
 import {Sequelize} from 'sequelize-typescript';
 
 const sequelize =  new Sequelize({
-	database: 'chainin',
+	database: process.env.MYSQL_DATABASE,
 	dialect: 'mysql',
 	username: 'root',
-	password: 'HrAgMJ&Jc37^zMr(',
-	host: 'localhost',
+	password: process.env.MYSQL_ROOT_PASSWORD,
+	host: process.env.MYSQL_HOST,
 	operatorsAliases: false
 	// modelPaths: [__dirname + '/models']
 });
