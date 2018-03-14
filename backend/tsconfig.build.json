@@ -9,8 +9,8 @@
     "outDir": "build",
     "moduleResolution": "Node",
     "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "strict": true,
+    "noUnusedParameters": false,
+    "strict": false,
     "lib": [
       "es5",
       "es6",
