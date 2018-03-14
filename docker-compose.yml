@@ -23,6 +23,21 @@ services:
     env_file: .env.docker
     command: yarn dev
 
+  frontend:
+    container_name: frontend
+    build:
+      context: frontend
+    volumes:
+      - "./frontend/src:/app/src"
+      - /app/node_modules
+    ports:
+     - "8080:8080"
+    depends_on:
+      - backend
+    env_file: .env.docker
+    command: yarn serve
+
+
   start_dependencies:
     image: dadarek/wait-for-dependencies
     depends_on:

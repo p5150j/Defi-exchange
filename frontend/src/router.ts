@@ -8,26 +8,26 @@ import Login from './views/Login.vue';
 Vue.use(Router);
 
 export default new Router({
-  routes: [
-    {
-      path: '/',
-      name: 'home',
-      component: Home,
-    },
-    {
-      path: '/about',
-      name: 'about',
-      component: About,
-    },
-    {
-      path: '/tokens',
-      name: 'tokens',
-      component: Tokens
-    },
-	{
-		path: '/login',
-		name: 'login',
-		component: Login,
-	},
-  ],
+	routes: [
+		{
+			path: '/',
+			name: 'home',
+			component: Home,
+		},
+		{
+			path: '/about',
+			name: 'about',
+			component: About,
+		},
+		{
+			path: '/tokens',
+			name: 'tokens',
+			component: Tokens
+		},
+		{
+			path: '/login',
+			name: 'login',
+			component: Login,
+		},
+	],
 });
