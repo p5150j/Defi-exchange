@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import Home from './views/Home.vue';
 import About from './views/About.vue';
+import Tokens from './views/Tokens.vue';
 
 Vue.use(Router);
 
@@ -17,5 +18,11 @@ export default new Router({
       name: 'about',
       component: About,
     },
+    {
+      path: '/tokens',
+      name: 'tokens',
+      component: Tokens
+    },
+
   ],
 });
