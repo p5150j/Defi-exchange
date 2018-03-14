@@ -10,7 +10,8 @@
     "moduleResolution": "Node",
     "noUnusedLocals": true,
     "noUnusedParameters": false,
-    "strict": false,
+    "strict": true,
+    "strictPropertyInitialization": false,
     "lib": [
       "es5",
       "es6",

@@ -1,6 +1,7 @@
 <template>
   <div class="hello">
-    <table>
+      <input type="text" v-model="search" />
+    <table width="100%">
       <thead>
       <tr>
         <th v-for="key in columns">
@@ -11,13 +12,14 @@
       </tr>
       </thead>
       <tbody>
-      <tr v-for="entry in tokens">
+      <tr v-for="entry in filteredList">
         <td v-for="key in columns">
           {{entry[key]}}
         </td>
       </tr>
       </tbody>
     </table>
+
   </div>
 </template>
 
@@ -37,37 +39,89 @@ import {request} from '../core/http-request'
 })
 export default class Tokens extends Vue {
     @Prop()
-    private msg!:string;
-
+    private msg!: string;
 
     tokens: any[] = []; // @TODO: define interface?
-   columns: string[] = ['address', 'name', 'symbol', 'created_date', 'decimals', 'deprecated', 'quote', 'active', 'zeroex_official'];
+    columns: string[] = ["address", "name", "symbol", "decimals", "deprecated", "quote", "active", "zeroex_official", "created_date"];
+    page: number = 0;
+    limit: number = 20;
+    search: string = '';
 
+    // @TODO - server side filtering would be better.. currently 150 tokens for an admin page is ok (faster, simpler, admins have good computers)
+    // computed
+    get filteredList () {
+        const lowerSearch = this.search.toLowerCase();
+        return this.tokens.filter(token =>
+            token.name.toLowerCase().indexOf(lowerSearch) >= 0 ||
+            token.symbol.toLowerCase().indexOf(lowerSearch) >= 0
+        );
+    }
 
     created() {
-        console.log('yay')
-        request({method: 'GET', url: '/tokens'}).then(({data}: { data: any[] }) => {
+        const params = {page: this.page, limit: this.limit};
+
+        request({method: "GET", url: "/tokens", params}).then(({data}: { data: any[] }) => {
             this.tokens = data;
         })
-
     }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
+    table {
+        border: 2px solid #42b983;
+        border-radius: 3px;
+        background-color: #fff;
+        width: 100%;
+        table-layout: fixed;
+    }
+
+    th {
+        background-color: #42b983;
+        color: rgba(255,255,255,0.66);
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    td {
+        background-color: #f9f9f9;
+    }
+
+    th, td {
+        min-width: 120px;
+        padding: 10px 20px;
+    }
+
+    th.active {
+        color: #fff;
+    }
+
+    th.active .arrow {
+        opacity: 1;
+    }
+
+    .arrow {
+        display: inline-block;
+        vertical-align: middle;
+        width: 0;
+        height: 0;
+        margin-left: 5px;
+        opacity: 0.66;
+    }
+
+    .arrow.asc {
+        border-left: 4px solid transparent;
+        border-right: 4px solid transparent;
+        border-bottom: 4px solid #fff;
+    }
+
+    .arrow.dsc {
+        border-left: 4px solid transparent;
+        border-right: 4px solid transparent;
+        border-top: 4px solid #fff;
+    }
 </style>

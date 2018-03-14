@@ -2,15 +2,25 @@ import * as restify from 'restify';
 import * as bunyan from 'bunyan';
 
 import sequelize from './db/sequelize';
+import * as corsMiddleware from 'restify-cors-middleware';
 
 import tokenRoutes from './routes/tokens.routes';
 
 (async () => {
 	await sequelize.sync({force: false});
 
+	const cors = corsMiddleware({
+		origins: ['*'], // @TODO insecure
+		allowHeaders: ['Authorization'],
+		// exposeHeaders: ['API-Token-Expiry']
+	});
+
 	const server = restify.createServer();
 	server.pre(restify.plugins.pre.strictQueryParams());
 	server.pre(restify.plugins.pre.dedupeSlashes());
+
+	server.pre(cors.preflight);
+	server.use(cors.actual);
 
 	server.use(restify.plugins.queryParser());
 	server.use(restify.plugins.bodyParser());

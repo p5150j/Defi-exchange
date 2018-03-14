@@ -8,9 +8,10 @@
     "experimentalDecorators": true,
     "noEmit": true,
     "moduleResolution": "Node",
-    "noUnusedLocals": false,
-    "noUnusedParameters": true,
-    "strict": false,
+    "noUnusedLocals": true,
+    "noUnusedParameters": false,
+    "strict": true,
+    "strictPropertyInitialization": false,
     "lib": [
       "es5",
       "es6",

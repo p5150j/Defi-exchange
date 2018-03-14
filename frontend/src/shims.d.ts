@@ -4,3 +4,4 @@ declare module '*.vue' {
 }
 
 declare module 'uport-connect';
+declare module 'vue-form';
