@@ -261,6 +261,10 @@ braces@^2.3.0, braces@^2.3.1:
     split-string "^3.0.2"
     to-regex "^3.0.1"
 
+bunyan-prettystream-circularsafe@^0.3.1:
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/bunyan-prettystream-circularsafe/-/bunyan-prettystream-circularsafe-0.3.1.tgz#f4e2a9e3960a4d11864c27480076b91a761026c1"
+
 bunyan@^1.8.12:
   version "1.8.12"
   resolved "https://registry.yarnpkg.com/bunyan/-/bunyan-1.8.12.tgz#f150f0f6748abdd72aeae84f04403be2ef113797"

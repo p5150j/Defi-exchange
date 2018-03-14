@@ -1,5 +1,7 @@
 import * as restify from 'restify';
 import * as bunyan from 'bunyan';
+import * as PrettyStream from 'bunyan-prettystream-circularsafe';
+
 
 import sequelize from './db/sequelize';
 import * as corsMiddleware from 'restify-cors-middleware';
@@ -29,15 +31,24 @@ import tokenRoutes from './routes/tokens.routes';
 
 
 	server.use(restify.plugins.requestLogger({}));
+
+	const prettyStdOut = new PrettyStream();
+	prettyStdOut.pipe(process.stdout);
+
+	const log = bunyan.createLogger({
+		event: 'pre',
+		name: 'myLogger',
+		streams: [{
+			level: 'debug',
+			type: 'raw',
+			stream: prettyStdOut
+		}]
+	});
+
 	server.on('after', restify.plugins.auditLogger({
-		log: bunyan.createLogger({
-			name: 'audit',
-			stream: process.stdout
-		}),
-		event: 'after'
-		// server: SERVER,
-		// logMetrics : logBuffer,
-		// printLog : true
+		log: log,
+		event: 'pre',
+		printLog: true
 	}));
 
 	// server.on('restifyError', function (req, res, err, cb) {

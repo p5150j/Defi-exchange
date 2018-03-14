@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-      <input type="text" v-model="search" />
+      <span>Filter</span><input type="text" v-model="search" />
     <table width="100%">
       <thead>
       <tr>
@@ -12,11 +12,15 @@
       </tr>
       </thead>
       <tbody>
-      <tr v-for="entry in filteredList">
+      <router-link v-for="entry in
+              filteredList" :to="{ name: 'tokenItem', params: { tokenId: entry.address }}"
+              tag="tr"
+              :key="entry.address"
+      >
         <td v-for="key in columns">
           {{entry[key]}}
         </td>
-      </tr>
+      </router-link>
       </tbody>
     </table>
 
@@ -38,14 +42,10 @@ import {request} from '../core/http-request'
     }
 })
 export default class Tokens extends Vue {
-    @Prop()
-    private msg!: string;
-
-    tokens: any[] = []; // @TODO: define interface?
-    columns: string[] = ["address", "name", "symbol", "decimals", "deprecated", "quote", "active", "zeroex_official", "created_date"];
-    page: number = 0;
-    limit: number = 20;
     search: string = '';
+    tokens: any[] = []; // @TODO: define interface?
+    columns: string[] = ["name", "symbol", "active"];
+    // columns: string[] = ["address", "name", "symbol", "decimals", "deprecated", "quote", "active", "zeroex_official", "created_date"];
 
     // @TODO - server side filtering would be better.. currently 150 tokens for an admin page is ok (faster, simpler, admins have good computers)
     // computed
@@ -58,7 +58,7 @@ export default class Tokens extends Vue {
     }
 
     created() {
-        const params = {page: this.page, limit: this.limit};
+        const params = {};
 
         request({method: "GET", url: "/tokens", params}).then(({data}: { data: any[] }) => {
             this.tokens = data;

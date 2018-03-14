@@ -34,10 +34,10 @@ function routes(server:restify.Server) {
 		}
 	});
 
-	server.put('/tokens/:id', async (req: restify.Request, res: restify.Response, next: restify.Next) => {
+	server.put('/tokens/:address', async (req: restify.Request, res: restify.Response, next: restify.Next) => {
 		try {
-			const token = await Token.update(req.body, {where: {id: req.params['id']}});
-			res.send(200, token);
+			const token = await Token.update(req.body, {where: {address: req.params['address']}});
+			res.send(204);
 			next();
 		} catch (error) {
 			next(error);

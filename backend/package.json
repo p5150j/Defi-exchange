@@ -14,6 +14,7 @@
   "dependencies": {
     "@types/node": "^9.4.7",
     "@types/restify": "^5.0.7",
+    "bunyan-prettystream-circularsafe": "^0.3.1",
     "mysql2": "^1.5.2",
     "reflect-metadata": "^0.1.12",
     "restify": "^6.3.4",
