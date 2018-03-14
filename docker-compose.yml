@@ -22,3 +22,9 @@ services:
       - db
     env_file: .env.docker
     command: yarn dev
+
+  start_dependencies:
+    image: dadarek/wait-for-dependencies
+    depends_on:
+      - db
+    command: db:3306
