@@ -2,7 +2,9 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">Home</router-link> |
-      <router-link to="/tokens">Dashboard!!</router-link>
+      <router-link to="/tokens">Dashboard</router-link>
+      <router-link class="button" :to="{name: 'tokenNew'}" >Add New</router-link>
+
       <span v-if="!user">|
          <router-link  to="/login">Login</router-link>
       </span>

@@ -1,7 +1,6 @@
 <template>
   <div class="hello">
-      <router-link class="button" :to="{name: 'tokenNew'}" >New</router-link>
-      <span>Filter</span><input type="text" v-model="search" />
+      <span>Filter</span><input class="search" type="text" placeholder="Search" v-model="search" />
     <table width="100%">
       <thead>
       <tr>
@@ -70,6 +69,24 @@ export default class Tokens extends Vue {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+
+
+    input:focus {
+      outline:none;
+    }
+    .search{
+      color:#eee;
+      position: fixed;;
+      border-radius: 40px;
+      border: none;
+      padding: 8px 12px 10px 12px;
+      width: 300px;
+      top:3px;
+      right:10px;
+      height: 35px;
+      border: 1px solid rgba(0,0,0,.5);
+      background: #2e2e2e;
+    }
     table {
       padding:60px;
       border-radius: 3px;
