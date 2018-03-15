@@ -9,15 +9,47 @@
          <router-link  to="/login">Login</router-link>
       </span>
     </div>
-    <router-view/>
+    <router-view class="main-content"/>
   </div>
 </template>
 
 <style lang="scss">
+
+
+  /* default light dark */
+  body{
+    margin:0;
+    padding:0;
+    background-color: #141414;
+    font-family: 'Ropa Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+  }
+
+
+
+
+  /* nav bar and background background dark */
+  /*
+
+  background-color: #2e2e2e;
+
+  background-color: #141414;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,.5);
+  weird green
+  background-color: #3f9;
+  non active before hover grey
+  background-color: #7a7a7a;
+  wiird yellow
+  background-color: #ffa71a;
+  https://fonts.google.com/specimen/Ropa+Sans
+  h2
+      font-size: 1.5rem;
+      font-stretch: condensed;
+      text-transform: uppercase; */
+
 #app {
-  font-family: 'Ropa Sans', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
 }
@@ -37,6 +69,9 @@
     }
   }
 }
+  .main-content {
+    padding-top: 100px; // fixed nav + some more
+  }
 </style>
 
 <script lang="ts">
