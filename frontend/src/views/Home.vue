@@ -9,6 +9,12 @@
     </div>
   </div>
 </template>
+<style lang="scss">
+img{
+  margin-top:70px;
+}
+
+</style>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';

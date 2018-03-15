@@ -71,11 +71,11 @@ export default class Tokens extends Vue {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
     table {
-        border: 2px solid #42b983;
-        border-radius: 3px;
-        background-color: #fff;
-        width: 100%;
-        table-layout: fixed;
+      padding:60px;
+      border-radius: 3px;
+      background-color: #1f1e1e;
+      width: 100%;
+      table-layout: fixed;
     }
 
     th {
@@ -89,7 +89,8 @@ export default class Tokens extends Vue {
     }
 
     td {
-        background-color: #f9f9f9;
+      background-color: #2e2e2e!important;
+      color:#fff;
     }
 
     th, td {
