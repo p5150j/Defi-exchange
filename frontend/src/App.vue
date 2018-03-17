@@ -51,7 +51,7 @@
 
 #app {
   text-align: center;
-  color: #2c3e50;
+  color: #9a9da0;;
 }
 #nav {
   width:100%;
@@ -62,7 +62,7 @@
   padding-top:20px;
   a {
     font-weight: bold;
-    color: #2c3e50;
+    color: #9a9da0;
     margin:15px;
     &.router-link-exact-active {
       color: #42b983;

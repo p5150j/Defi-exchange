@@ -91,24 +91,5 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-    .myForm {
-        text-align: left;
-        width: 300px;
-        margin: auto;
 
-        label {
-            display: block;
-            padding: 5px;
-        }
-        input {
-            width: 100%;
-        }
-        span {
-            display: block;
-        }
-    }
-    .messages {
-        padding: 3px 10px;
-        min-height: 50px;
-    }
 </style>

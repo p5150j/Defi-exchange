@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-      <span>Filter</span><input class="search" type="text" placeholder="Search" v-model="search" />
+      <input class="search" type="text" placeholder="Search" v-model="search" />
     <table width="100%">
       <thead>
       <tr>
@@ -44,7 +44,7 @@ import {request} from '../core/http-request'
 export default class Tokens extends Vue {
     search: string = '';
     tokens: any[] = []; // @TODO: define interface?
-    columns: string[] = ["name", "symbol", "active"];
+    columns: string[] = ["name", "symbol", "active", "zeroex_official"];
     // columns: string[] = ["address", "name", "symbol", "decimals", "deprecated", "quote", "active", "zeroex_official", "created_date"];
 
     // @TODO - server side filtering would be better.. currently 150 tokens for an admin page is ok (faster, simpler, admins have good computers)
@@ -81,9 +81,9 @@ export default class Tokens extends Vue {
       border: none;
       padding: 8px 12px 10px 12px;
       width: 300px;
-      top:3px;
+      top:6px;
       right:10px;
-      height: 35px;
+      height: 30px;
       border: 1px solid rgba(0,0,0,.5);
       background: #2e2e2e;
     }
@@ -108,6 +108,7 @@ export default class Tokens extends Vue {
     td {
       background-color: #2e2e2e!important;
       color:#fff;
+      cursor: pointer;
     }
 
     th, td {
@@ -115,32 +116,5 @@ export default class Tokens extends Vue {
         padding: 10px 20px;
     }
 
-    th.active {
-        color: #fff;
-    }
-
-    th.active .arrow {
-        opacity: 1;
-    }
-
-    .arrow {
-        display: inline-block;
-        vertical-align: middle;
-        width: 0;
-        height: 0;
-        margin-left: 5px;
-        opacity: 0.66;
-    }
-
-    .arrow.asc {
-        border-left: 4px solid transparent;
-        border-right: 4px solid transparent;
-        border-bottom: 4px solid #fff;
-    }
-
-    .arrow.dsc {
-        border-left: 4px solid transparent;
-        border-right: 4px solid transparent;
-        border-top: 4px solid #fff;
-    }
+  
 </style>
