@@ -181,6 +181,7 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+    textarea, input, button { outline: none; }
     .myForm {
       padding: 15px;
       background-color: #232222;
