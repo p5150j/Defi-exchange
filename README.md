@@ -3,6 +3,9 @@
 ### Setup
 
 ```
+cp .env.docker.template .env.docker 
+# configure .env.docker
+
 make build
 make up
 make seed

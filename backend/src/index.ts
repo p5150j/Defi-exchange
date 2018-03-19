@@ -8,7 +8,7 @@ import * as corsMiddleware from 'restify-cors-middleware';
 
 import tokenRoutes from './routes/tokens.routes';
 
-(async () => {
+async function init() {
 	await sequelize.sync({force: false});
 
 	const cors = corsMiddleware({
@@ -67,4 +67,6 @@ import tokenRoutes from './routes/tokens.routes';
 	tokenRoutes(server);
 
 	server.listen(process.env.API_PORT, () =>console.log('%s listening at %s', server.name, server.url) );
-})();
+}
+
+init();

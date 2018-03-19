@@ -2,3 +2,4 @@
 *.iml
 volumes/
 .DS_Store
+.env.docker
